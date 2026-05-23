@@ -66,16 +66,25 @@ public class IloInteraction : MonoBehaviour
         }
     }
 
+    // SADECE BU KISIM GÜNCELLENDİ
     private void GiveRoses()
     {
-        Debug.Log("Güller ILO'ya verildi!");
-
-        if (interactText != null)
+        // GameManager'a kazanma şartını soruyoruz
+        if (GameManager.Instance != null)
         {
-            interactText.SetActive(false);
-        }
+            bool hasWon = GameManager.Instance.CheckWinCondition();
 
-        this.enabled = false;
+            if (hasWon)
+            {
+                Debug.Log("Güller ILO'ya başarıyla teslim edildi ve oyun kazanıldı!");
+                if (interactText != null) interactText.SetActive(false);
+                this.enabled = false;
+            }
+            else
+            {
+                Debug.Log("Henüz yeterli gülün yok!");
+            }
+        }
     }
 
     // Zamanlayıcı Metodumuz
