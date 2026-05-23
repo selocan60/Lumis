@@ -1,13 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
 
 public class FoxController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 7f; 
-    
+    public float jumpForce = 7f;
+
     [Header("Eşya Toplama Sistemi")]
-    public int collectedRoses = 0; 
+    public int collectedRoses = 0;
 
     [Header("UI Paneli (Bölüm Sonu)")]
     public GameObject winPanel; // Ekranda açılacak tebrikler paneli
@@ -16,8 +16,8 @@ public class FoxController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     private float moveInput;
-    private bool isGrounded; 
-    private bool isNearNPC = false; 
+    private bool isGrounded;
+    private bool isNearNPC = false;
 
     void Start()
     {
@@ -55,8 +55,8 @@ public class FoxController : MonoBehaviour
                 if (collectedRoses > 0)
                 {
                     Debug.Log("Güller teslim edildi!");
-                    collectedRoses = 0; 
-                    
+                    collectedRoses = 0;
+
                     // --- YENİ MANTIK: SAHNE DEĞİŞTİRMEZ, PANELİ AÇAR VE OYUNU DURDURUR ---
                     if (winPanel != null)
                     {
@@ -67,15 +67,17 @@ public class FoxController : MonoBehaviour
             }
         }
 
+        // --- YÖN DÖNDÜRME VE ANİMASYON MANTIĞI ---
+
+        // 1. Karakterin yönünü çevirme (Zaten senin kodunda çok güzel kurulmuştu)
         if (moveInput != 0)
         {
-            anim.SetBool("isRunning", true);
-            spriteRenderer.flipX = (moveInput < 0); 
+            spriteRenderer.flipX = (moveInput < 0);
         }
-        else
-        {
-            anim.SetBool("isRunning", false); 
-        }
+
+        // 2. Animatöre hızı iletme (Önceki isRunning boolean'ı yerine Speed Float'ını kullanıyoruz)
+        // Mathf.Abs, moveInput -1 (sola) olsa bile animatöre 1 olarak gönderir ki koşu animasyonu tetiklensin.
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 
     void FixedUpdate()
@@ -88,7 +90,7 @@ public class FoxController : MonoBehaviour
         if (collision.CompareTag("Rose"))
         {
             Destroy(collision.gameObject);
-            collectedRoses++; 
+            collectedRoses++;
         }
 
         if (collision.CompareTag("NPC"))
