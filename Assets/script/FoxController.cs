@@ -49,20 +49,16 @@ public class FoxController : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
 
-            // G TUŞUNA BASILDIĞINDA
+            // --- GÜNCELLENEN KISIM: G TUŞUNA BASILDIĞINDA ---
             if (Keyboard.current.gKey.wasPressedThisFrame && isNearNPC)
             {
-                if (collectedRoses > 0)
+                // ARTIK KONTROLÜ TAMAMEN GAMEMANAGER'A DEVREDİYORUZ
+                if (GameManager.Instance != null)
                 {
-                    Debug.Log("Güller teslim edildi!");
-                    collectedRoses = 0;
-
-                    // --- YENİ MANTIK: SAHNE DEĞİŞTİRMEZ, PANELİ AÇAR VE OYUNU DURDURUR ---
-                    if (winPanel != null)
-                    {
-                        winPanel.SetActive(true); // Ekrandaki tebrik panelini görünür yap
-                    }
-                    Time.timeScale = 0f; // Oyunu dondur (Tilki artık hareket edemez)
+                    // GameManager içindeki CheckWinCondition metodunu çağırıyoruz.
+                    // O metod eğer 10 gül toplandıysa true dönecek ve oyunu durduracak.
+                    // Eğer 10 gül toplanmadıysa false dönecek ve oyun AKMAYA DEVAM EDECEK!
+                    GameManager.Instance.CheckWinCondition();
                 }
             }
         }
