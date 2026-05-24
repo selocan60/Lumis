@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; // <-- Sahne geçişleri için bu kütüphaneyi ekledik
 
 public class GameManager : MonoBehaviour
 {
@@ -70,14 +71,12 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    // --- GÜNCELLENEN KISIM 1 ---
     void UpdateRoseUI()
     {
         if (roseText != null)
             roseText.text = "ROSE: " + currentRoses + "/" + totalRosesInLevel;
     }
 
-    // --- GÜNCELLENEN KISIM 2 ---
     void UpdateTimerUI()
     {
         if (timerText != null)
@@ -97,5 +96,12 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         if (losePanel != null) losePanel.SetActive(true);
         Time.timeScale = 0f; // Oyunu dondurur
+    }
+
+    // --- YENİ EKLENEN MENÜYE DÖNÜŞ FONKSİYONU ---
+    public void AnaMenuyeDon()
+    {
+        Time.timeScale = 1f; // Oyun donmuş durumdaydı, zaman akışını normale döndürüyoruz
+        SceneManager.LoadScene("MainMenu"); // Projendeki MainMenu sahnesini yükler
     }
 }
