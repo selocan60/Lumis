@@ -8,9 +8,9 @@ Game GDD (Game Design Document)
 
 Game Title: LUMI
 
-Genre: 2D Runner Platformer
+Genre: 2D Platformer
 
-LUMI is a fast-paced 2D pixel art platform game where players control LUMI, a brave fox exploring a magical forest. With full manual control over her movement, LUMI must navigate left and right with precision, jumping to collect scattered roses under tight time pressure. Speed and efficiency are the player's primary focus. The ultimate goal is to collect enough roses before time runs out and deliver them to her friend ILO at the end of the level.
+LUMI is a fast-paced 2D pixel art platform game where players control LUMI, a brave fox exploring a forest. With full manual control over her movement, LUMI must navigate left and right with precision, jumping to collect scattered roses under tight time pressure. Speed and efficiency are the player's primary focus. The ultimate goal is to collect enough roses before time runs out and deliver them to her friend ILO at the end of the level.
 
 Core Loop:
 
