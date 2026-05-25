@@ -1,39 +1,42 @@
 Team Name: Lumis
 
 Team Members and Roles:
-Selman Erdoğdu  (GitHub: [selocan60](https://github.com/selocan60)) – Game, Level, and UI/UX Designer, Programmer
-Görkem Arslan  (GitHub: [ArslanGorkem52](https://github.com/ArslanGorkem52)) – Gameplay Programmer
+Selman Erdoğdu  (GitHub: [selocan60](https://github.com/selocan60)) – Game Design, Level Design, UI/UX Design, and general programming support.
 
-Game GDD (Game Design Document)
+Görkem Arslan  (GitHub: [ArslanGorkem52](https://github.com/ArslanGorkem52)) – Lead Gameplay Programmer, core mechanics, and systems implementation.
 
-Game Title: LUMI
 
-Genre: 2D Platformer
+LUMI
 
-LUMI is a fast-paced 2D pixel art platform game where players control LUMI, a brave fox exploring a forest. With full manual control over her movement, LUMI must navigate left and right with precision, jumping to collect scattered roses under tight time pressure. Speed and efficiency are the player's primary focus. The ultimate goal is to collect enough roses before time runs out and deliver them to her friend ILO at the end of the level.
+Concept
+LUMI is a fast-paced 2D pixel art platformer where the player controls a brave fox exploring a forest under tight time pressure. The player must navigate platforms with precision to collect scattered roses. The ultimate goal is to gather enough roses and successfully deliver them to her friend ILO before the timer runs out.
 
-Core Loop:
+Core Loop
 
-Move Left/Right -> Jump -> Collect Roses -> Reach Goal -> Deliver to ILO
+Player navigates the level → jumps to collect roses → time steadily decreases → player rushes to reach ILO → delivers roses to win.
 
-Controls:
+Win & Lose Conditions
 
-A: Move Left
+Win: Collect the target number of roses and press 'G' to deliver them to ILO at the end of the level before the time runs out.
+Lose: Reaching ILO without the required number of roses, or the timer running out before completion.
 
-D: Move Right
+Scenes
 
-SPACE: Jump
+MainMenu: Contains the game title, main background, and the Play button to start the game.
+SampleScene: The main playable level. Contains the player character, physics/colliders, collectibles (roses), the goal character (ILO), and in-game UI (score and timer).
+
+Controls
+
+A / D: Move Left / Right
+
+Space: Jump
 
 G: Deliver collected roses to ILO
 
-ESC: Pause Menu (Resume, Exit)
+ESC: Pause Menu
 
-Win/Loss Conditions:
+Team & Responsibilities (Team: Lumis)
 
-Win: Collect the required target number of roses and successfully press the G key to deliver them upon reaching ILO at the end of the level.
+Selman Erdoğdu (selocan60): Game Design, Level Design, UI/UX Design, and general programming support.
 
-Loss: Reaching ILO without the required number of roses, failing to survive the obstacles along the way, or running out of time.
-
-Art Style: 2D Pixel Art
-
-GitHub Link: [https://github.com/selocan60/Lumis](https://github.com/selocan60/Lumis)
+Görkem Arslan (ArslanGorkem52): Lead Gameplay Programmer, core mechanics, and systems implementation.
