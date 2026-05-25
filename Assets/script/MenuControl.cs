@@ -8,7 +8,7 @@ public class MenuKontrol : MonoBehaviour
     public void OyunaBasla()
     {
         // Ekran görüntündeki oyun sahnesinin adı
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void PaneliAc()
